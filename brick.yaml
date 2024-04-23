@@ -31,7 +31,7 @@ vars:
     description: Your name
     default: Dash
     prompt: What is your name?
-  pacakgename:
+  packagename:
     type: string
     description: Your name
     default: Dash
