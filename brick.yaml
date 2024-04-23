@@ -30,9 +30,14 @@ vars:
     type: string
     description: Your name
     default: Dash
-    prompt: What is your name?
+    prompt: What is your project_name?
+  appname:
+    type: string
+    description: Your name
+    default: Dash
+    prompt: What is your app_name?
   packagename:
     type: string
     description: Your name
     default: Dash
-    prompt: What is your package_name?
+    prompt: What is your package_name?  

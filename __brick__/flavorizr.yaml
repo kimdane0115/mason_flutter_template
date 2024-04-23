@@ -25,7 +25,7 @@ flavorizr:
 flavors:
   dev:
     app:
-      name: "플러터템플릿(dev)"
+      name: "{{appname}}(dev)"
 
     android:
       applicationId: "{{packagename}}.dev"
@@ -41,7 +41,7 @@ flavors:
 
   staging:
     app:
-      name: "플러터템플릿(staging)"
+      name: "{{appname}}(staging)"
 
     android:
       applicationId: "{{packagename}}.staging"
@@ -57,7 +57,7 @@ flavors:
 
   prod:
     app:
-      name: "플러터템플릿"
+      name: "{{appname}}"
 
     android:
       applicationId: "{{packagename}}"
