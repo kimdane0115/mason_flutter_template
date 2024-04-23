@@ -28,13 +28,13 @@ flavors:
       name: "플러터템플릿(dev)"
 
     android:
-      applicationId: "{{ packagename }}.dev"
+      applicationId: "{{packagename}}.dev"
       generateDummyAssets: false
       firebase:
         config: ".firebase/dev/google-services.json"
 
     ios:
-      bundleId: "{{ packagename }}.dev"
+      bundleId: "{{packagename}}.dev"
       generateDummyAssets: false
       firebase:
         config: ".firebase/dev/GoogleService-Info.plist"
@@ -44,13 +44,13 @@ flavors:
       name: "플러터템플릿(staging)"
 
     android:
-      applicationId: "{{ packagename }}.staging"
+      applicationId: "{{packagename}}.staging"
       generateDummyAssets: false
       firebase:
         config: ".firebase/staging/google-services.json"
 
     ios:
-      bundleId: "{{ packagename }}.staging"
+      bundleId: "{{packagename}}.staging"
       generateDummyAssets: false
       firebase:
         config: ".firebase/staging/GoogleService-Info.plist"
@@ -60,13 +60,13 @@ flavors:
       name: "플러터템플릿"
 
     android:
-      applicationId: "{{ packagename }}"
+      applicationId: "{{packagename}}"
       generateDummyAssets: false
       firebase:
         config: ".firebase/prod/google-services.json"
 
     ios:
-      bundleId: "{{ packagename }}"
+      bundleId: "{{packagename}}"
       generateDummyAssets: false
       firebase:
         config: ".firebase/prod/GoogleService-Info.plist"
