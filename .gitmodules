@@ -1,0 +1,3 @@
+[submodule "__brick__/lib"]
+	path = __brick__/lib
+	url = git@github.com:kimdane0115/flutter_lib.git
