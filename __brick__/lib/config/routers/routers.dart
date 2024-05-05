@@ -1,13 +1,13 @@
 
 
-import 'package:flutter_template/feature/1.auth/presentation/page/login_page.dart';
-import 'package:flutter_template/splash_screen.dart';
 
 import '../../core/constants/index.dart';
+import '../../feature/1.auth/presentation/page/login_page.dart';
 import '../../feature/2.home/presentation/page/home_screen.dart';
 import '../../feature/2.home/presentation/page/home_screen2.dart';
 import '../../feature/2.home/presentation/page/home_screen3.dart';
 import '../../feature/2.home/presentation/page/tab_screen.dart';
+import '../../splash_screen.dart';
 import 'router.dart';
 
 part 'routers.g.dart';

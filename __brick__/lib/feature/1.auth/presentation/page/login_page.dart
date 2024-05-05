@@ -2,11 +2,11 @@
 
 import 'dart:async';
 
-import 'package:flutter_template/feature/1.auth/presentation/provider/supabase_auth_provider.async_notifier.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../core/constants/index.dart';
+import '../provider/supabase_auth_provider.async_notifier.dart';
 import '../widget/show_loadingIndicator.dart';
 
 class LoginPage extends ConsumerWidget {

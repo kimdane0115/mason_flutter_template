@@ -1,13 +1,13 @@
 
-import 'package:flutter_template/feature/2.home/domain/usecases/add_member.dart';
-import 'package:flutter_template/feature/2.home/domain/usecases/delete_member.dart';
-import 'package:flutter_template/feature/2.home/domain/usecases/update_member.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../data/data_sources/supabase/supabase_home_api_service.dart';
 import '../../data/repository/home_repository_impl.dart';
 import '../../domain/repository/home_repository.dart';
+import '../../domain/usecases/add_member.dart';
+import '../../domain/usecases/delete_member.dart';
 import '../../domain/usecases/get_members.dart';
+import '../../domain/usecases/update_member.dart';
 
 part 'home_provider.g.dart';
 

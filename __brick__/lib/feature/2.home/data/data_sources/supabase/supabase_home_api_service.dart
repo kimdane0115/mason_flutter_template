@@ -1,6 +1,7 @@
 
-import 'package:flutter_template/feature/2.home/data/models/models.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../models/supabase/sb_member_model.dart';
 
 abstract class SupabaseApiService {
   Future<void> getMember(String teamId);

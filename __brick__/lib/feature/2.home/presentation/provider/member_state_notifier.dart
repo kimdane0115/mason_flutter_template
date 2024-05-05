@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/feature/2.home/domain/usecases/delete_member.dart';
-import 'package:flutter_template/feature/2.home/domain/usecases/update_member.dart';
 
 import '../../domain/entities/member.dart';
 import '../../domain/usecases/add_member.dart';
+import '../../domain/usecases/delete_member.dart';
 import '../../domain/usecases/get_members.dart';
+import '../../domain/usecases/update_member.dart';
 import 'home_provider.dart';
 // part 'member_state_notifier.g.dart';
 
