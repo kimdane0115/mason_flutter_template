@@ -19,7 +19,10 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAccount? googleUser = await GoogleSignIn(
+        clientId: '881065404338-qf1nkl9fuu0mjh4va08j94n150dhhuqi.apps.googleusercontent.com',
+        serverClientId: '881065404338-bed4vqep68oqsvdil74djqc120ohgsf2.apps.googleusercontent.com',
+      ).signIn();
       // String iosClientId = '';
       // String webClientId = '';
       // final GoogleSignInAccount? googleUser = await GoogleSignIn(

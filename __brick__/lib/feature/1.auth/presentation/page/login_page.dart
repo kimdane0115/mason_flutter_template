@@ -23,7 +23,6 @@ class LoginPage extends ConsumerWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                // googlelogin();
                 _googleSignIn(context, ref);
               },
               child: const Text('GOGGLE 로그인'),

@@ -7,7 +7,7 @@ part of 'firebase_auth_provider.async_notifier.dart';
 // **************************************************************************
 
 String _$fireBaseAuthAsyncNotifierHash() =>
-    r'1de5e7c12b1b1c7a507819f159049ede855e4299';
+    r'82aa15b7efc7cf3a1b66ff6fddfc9fb80dfffc82';
 
 /// See also [FireBaseAuthAsyncNotifier].
 @ProviderFor(FireBaseAuthAsyncNotifier)
