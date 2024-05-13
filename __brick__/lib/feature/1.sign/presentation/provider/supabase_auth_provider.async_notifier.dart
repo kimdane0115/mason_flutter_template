@@ -2,6 +2,8 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'sign_provider.dart';
 part 'supabase_auth_provider.async_notifier.g.dart';
 
 final authStreamProvider = StreamProvider<AuthState>((ref) {
@@ -20,8 +22,8 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
     state = await AsyncValue.guard(() async {
       
       final GoogleSignInAccount? googleUser = await GoogleSignIn(
-        clientId: '881065404338-qf1nkl9fuu0mjh4va08j94n150dhhuqi.apps.googleusercontent.com',
-        serverClientId: '881065404338-bed4vqep68oqsvdil74djqc120ohgsf2.apps.googleusercontent.com',
+        clientId: '890529149266-oulemc9kculnbv368q0g1cqq5vn23o48.apps.googleusercontent.com',
+        serverClientId: '890529149266-a50ojodvrg269ak38ub3jsmq39vcdspg.apps.googleusercontent.com',
       ).signIn();
       // String iosClientId = '';
       // String webClientId = '';
@@ -38,6 +40,10 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
       print('>>>> accessToken : ${googleAuth?.accessToken}');
       print('>>>> idToken : ${googleAuth?.idToken}');
 
+      String email = googleUser?.email ?? '';
+
+      print('>>>>>> start email : $email');
+      ref.read(userVerifyProvider).call(email);
       //  OAuthCredential _googleCredential = GoogleAuthProvider.credential(
       //   idToken: googleAuth?.idToken,
       //   accessToken: googleAuth?.accessToken,

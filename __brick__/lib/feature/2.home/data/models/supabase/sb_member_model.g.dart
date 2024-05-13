@@ -8,7 +8,7 @@ part of 'sb_member_model.dart';
 
 _$SbMemberModelImpl _$$SbMemberModelImplFromJson(Map<String, dynamic> json) =>
     _$SbMemberModelImpl(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       fcm_token: json['fcm_token'] as String,
       profile_image_url: json['profile_image_url'] as String,

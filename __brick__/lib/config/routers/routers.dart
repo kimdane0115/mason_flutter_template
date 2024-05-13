@@ -1,12 +1,16 @@
 
 
 
+
 import '../../core/constants/index.dart';
-import '../../feature/1.auth/presentation/page/login_page.dart';
+import '../../feature/1.sign/presentation/page/login_page.dart';
+import '../../feature/1.sign/presentation/page/sign_up_screen.dart';
 import '../../feature/2.home/presentation/page/home_screen.dart';
 import '../../feature/2.home/presentation/page/home_screen2.dart';
 import '../../feature/2.home/presentation/page/home_screen3.dart';
 import '../../feature/2.home/presentation/page/tab_screen.dart';
+import '../../feature/3.record/presentation/page/record_screen.dart';
+import '../../feature/4.my_info/presentation/page/my_info_page.dart';
 import '../../splash_screen.dart';
 import 'router.dart';
 
@@ -18,6 +22,12 @@ class Routers {
   static const String home = '/home';
   static const String home2 = '/home2';
   static const String home3 = '/home3';
+
+  static const String record = '/record';
+  static const String myInfo = '/my_info';
+
+  // 2 depth routes
+  static const String signUp = 'sign_up';
 }
 
 @TypedGoRoute<SplashRoute>(
@@ -33,6 +43,11 @@ class SplashRoute extends GoRouteData {
 
 @TypedGoRoute<LoginPageRoute>(
   path: Routers.login,
+  routes: [
+    TypedGoRoute<SignUpScreenRoute>(
+    path: Routers.signUp,
+  ),
+  ]
 )
 class LoginPageRoute extends GoRouteData {
   const LoginPageRoute();
@@ -42,16 +57,31 @@ class LoginPageRoute extends GoRouteData {
   }
 }
 
+class SignUpScreenRoute extends GoRouteData {
+  const SignUpScreenRoute();
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const MaterialPage(child: SignUpScreen());
+  }
+}
+
 @TypedShellRoute<TabScreenShell>(
   routes: <TypedRoute<RouteData>>[
     TypedGoRoute<HomeScreenRoute>(
       path: Routers.home,
     ),
-    TypedGoRoute<HomeScreenRoute2>(
-      path: Routers.home2,
+    // TypedGoRoute<HomeScreenRoute2>(
+    //   path: Routers.home2,
+    // ),
+    // TypedGoRoute<HomeScreenRoute3>(
+    //   path: Routers.home3,
+    // ),
+    TypedGoRoute<RecordScreenRoute>(
+      path: Routers.record,
     ),
-    TypedGoRoute<HomeScreenRoute3>(
-      path: Routers.home3,
+    TypedGoRoute<MyInfoPageRoute>(
+      path: Routers.myInfo,
     ),
   ]
 )
@@ -97,6 +127,28 @@ class HomeScreenRoute3 extends GoRouteData {
     return const MaterialPage(
       child: HomeScreen3(),
       name: Routers.home3,
+    );
+  }
+}
+
+class RecordScreenRoute extends GoRouteData {
+  const RecordScreenRoute();
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const MaterialPage(
+      child: RecordScreen(),
+      name: Routers.record,
+    );
+  }
+}
+
+class MyInfoPageRoute extends GoRouteData {
+  const MyInfoPageRoute();
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const MaterialPage(
+      child: MyInfoPage(),
+      name: Routers.myInfo,
     );
   }
 }

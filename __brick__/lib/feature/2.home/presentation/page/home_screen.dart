@@ -1,12 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../../core/constants/index.dart';
-import '../../../1.auth/presentation/provider/supabase_auth_provider.async_notifier.dart';
+import '../../../1.sign/presentation/provider/supabase_auth_provider.async_notifier.dart';
 import '../provider/home_provider.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -43,28 +41,118 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget body(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '금주 일정',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Container(
+            height: 150,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(22)
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  customCalendar(),
+                  const VerticalDivider(),
+                  const Column(
+                    children: [
+                      Text(' 2024년 5월 일정'),
+                      SizedBox(height: 4,),
+                      Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
+                      Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
+                      Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
+                      Text(' vs team_name', style: TextStyle(fontWeight: FontWeight.bold),),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 10,),
+          Text(
+            '전적',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Container(
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(22)
+            ),
+          ),
+          const SizedBox(height: 10,),
+          Text(
+            '참석/불참석',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Container(
+            width: double.infinity,
+            height: 300,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(22)
+            ),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('김동욱'),
+                  Text('김동욱'),
+                  Text('김동욱'),
+                  Text('김동욱'),
+                  Text('김동욱'),
+                  Text('김동욱'),
+                  
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget customCalendar() {
+    DateTime now = DateTime.now();
+    DateTime focusedDay = DateTime.utc(2024, 5, 18);
+    const double fontSize = 12;
     return SizedBox(
       width: 200,
-      height: 150,
+      // height: 150,
       child: TableCalendar(
           headerVisible: false,
           // daysOfWeekHeight: 2,
           daysOfWeekStyle: const DaysOfWeekStyle(
             weekdayStyle: TextStyle(
-              fontSize: 8,
+              fontSize: fontSize,
             ),
-            weekendStyle: TextStyle(fontSize: 8)),
+            weekendStyle: TextStyle(fontSize: fontSize)),
         calendarStyle: const CalendarStyle(
-            weekendTextStyle: TextStyle(fontSize: 8),
-            weekNumberTextStyle: TextStyle(fontSize: 8),
-            outsideTextStyle: TextStyle(fontSize: 8),
-            defaultTextStyle: TextStyle(fontSize: 8),
-            disabledTextStyle: TextStyle(fontSize: 8)
+            weekendTextStyle: TextStyle(fontSize: fontSize),
+            weekNumberTextStyle: TextStyle(fontSize: fontSize),
+            outsideTextStyle: TextStyle(fontSize: fontSize,),
+            defaultTextStyle: TextStyle(fontSize: fontSize),
+            disabledTextStyle: TextStyle(fontSize: fontSize, color: Color(0xFFBFBFBF)),
+            selectedTextStyle: TextStyle(fontSize: fontSize),
+            todayTextStyle: TextStyle(fontSize: fontSize, color: Color(0xFFFAFAFA)),
+            cellMargin: EdgeInsets.all(1),
             ),
           shouldFillViewport: true,
-          firstDay: DateTime(2020),
-          lastDay: DateTime(2021),
-          focusedDay: DateTime(2020),
+          firstDay: DateTime(now.year, now.month, 1),
+          // firstDay: DateTime(2024, 5, 18, 1),
+          lastDay: DateTime(now.year, now.month + 1, 0),
+          // lastDay: DateTime(2022),
+          focusedDay: focusedDay,
+          currentDay: focusedDay,
+          // focusedDay: DateTime.utc(2024,5,1),
           ),
     );
   }

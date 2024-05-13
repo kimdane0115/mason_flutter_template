@@ -1,13 +1,13 @@
 import '../../../../core/constants/index.dart';
 
-class HomeScreen2 extends ConsumerStatefulWidget {
-  const HomeScreen2({super.key});
+class RecordScreen extends ConsumerStatefulWidget {
+  const RecordScreen({super.key});
 
   @override
-  ConsumerState<HomeScreen2> createState() => _HomeScreenState();
+  ConsumerState<RecordScreen> createState() => _RecordScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen2> {
+class _RecordScreenState extends ConsumerState<RecordScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

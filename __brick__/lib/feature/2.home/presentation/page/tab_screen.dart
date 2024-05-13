@@ -17,9 +17,9 @@ class _TabScreenState extends ConsumerState<TabScreen> {
 
     if (location == const HomeScreenRoute().location) {
       return 0;
-    } else if (location == const HomeScreenRoute2().location) {
+    } else if (location == const RecordScreenRoute().location) {
       return 1;
-    } else if (location == const HomeScreenRoute3().location) {
+    } else if (location == const MyInfoPageRoute().location) {
       return 2;
     } else {
       return 0; // Default index if no match
@@ -50,11 +50,11 @@ class _TabScreenState extends ConsumerState<TabScreen> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.text_snippet),
-          label: '텍스트',
+          label: '기록',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.people),
-          label: '정보',
+          label: '내정보',
         ),
       ],
     );
@@ -77,10 +77,10 @@ class _TabScreenState extends ConsumerState<TabScreen> {
         const HomeScreenRoute().go(context);
         break;
       case 1:
-        const HomeScreenRoute2().go(context);
+        const RecordScreenRoute().go(context);
         break;
       case 2:
-        const HomeScreenRoute3().go(context);
+        const MyInfoPageRoute().go(context);
         break;
     }
   }

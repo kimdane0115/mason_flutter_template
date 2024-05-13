@@ -37,6 +37,12 @@ extension $SplashRouteExtension on SplashRoute {
 RouteBase get $loginPageRoute => GoRouteData.$route(
       path: '/login',
       factory: $LoginPageRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'sign_up',
+          factory: $SignUpScreenRouteExtension._fromState,
+        ),
+      ],
     );
 
 extension $LoginPageRouteExtension on LoginPageRoute {
@@ -45,6 +51,24 @@ extension $LoginPageRouteExtension on LoginPageRoute {
 
   String get location => GoRouteData.$location(
         '/login',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SignUpScreenRouteExtension on SignUpScreenRoute {
+  static SignUpScreenRoute _fromState(GoRouterState state) =>
+      const SignUpScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/login/sign_up',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -66,12 +90,12 @@ RouteBase get $tabScreenShell => ShellRouteData.$route(
           factory: $HomeScreenRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/home2',
-          factory: $HomeScreenRoute2Extension._fromState,
+          path: '/record',
+          factory: $RecordScreenRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/home3',
-          factory: $HomeScreenRoute3Extension._fromState,
+          path: '/my_info',
+          factory: $MyInfoPageRouteExtension._fromState,
         ),
       ],
     );
@@ -99,12 +123,12 @@ extension $HomeScreenRouteExtension on HomeScreenRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $HomeScreenRoute2Extension on HomeScreenRoute2 {
-  static HomeScreenRoute2 _fromState(GoRouterState state) =>
-      const HomeScreenRoute2();
+extension $RecordScreenRouteExtension on RecordScreenRoute {
+  static RecordScreenRoute _fromState(GoRouterState state) =>
+      const RecordScreenRoute();
 
   String get location => GoRouteData.$location(
-        '/home2',
+        '/record',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -117,12 +141,12 @@ extension $HomeScreenRoute2Extension on HomeScreenRoute2 {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $HomeScreenRoute3Extension on HomeScreenRoute3 {
-  static HomeScreenRoute3 _fromState(GoRouterState state) =>
-      const HomeScreenRoute3();
+extension $MyInfoPageRouteExtension on MyInfoPageRoute {
+  static MyInfoPageRoute _fromState(GoRouterState state) =>
+      const MyInfoPageRoute();
 
   String get location => GoRouteData.$location(
-        '/home3',
+        '/my_info',
       );
 
   void go(BuildContext context) => context.go(location);
